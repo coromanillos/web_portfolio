@@ -18,14 +18,18 @@ body {
   /* Defines the presentation of info to be 2 columns one a big screen, and split space evenly on a smaller screen */
   display: grid;
   grid-template-columns: repeat(1, minmax(0, 1fr));
-  gap: 8rem;
+  gap: 6rem;
+}
+
+p {
+  font-size: 0.9 rem;
 }
 /* Create a background styling color that sits beneath text, but over background color. */
 .underlay {
   position: fixed;
   background-color: #172554;
   inset: 0;
-  opacity: 0.4;
+  opacity: 0.15;
 }
 
 /* Defines the 'order' of background color layers. */
@@ -60,5 +64,23 @@ header h1 {
 }
 
 header h4 {
+  font-weight: 400;
+}
+/* Because we intend to make sections layed out in one column, we give the entirety of main a flex layout */
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+section h2 {
+  text-transform: uppercase;
+  font-size: 1rem;
   font-weight: 400;
 }
