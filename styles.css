@@ -21,6 +21,10 @@ body {
   gap: 6rem;
 }
 
+p {
+  line-height: 1.5rem;
+}
+
 /* Whenever text is selected, we change the highlight color. The color of text is contrasted accordingly. */
 p::selection,
 h1::selection,
@@ -121,4 +125,11 @@ section h2 {
 /* When anchor text hovered, accent it */
 .anchor-text:hover {
   color: var(--color-accent);
+}
+
+.experience-contents {
+  /* Taken from body, changes the gap to be equal to the about-contents, 1 rem, this displays Experience content as a singular column */
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 1rem;
 }
