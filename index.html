@@ -21,7 +21,7 @@
       referrerpolicy="no-referrer"
     />
   </head>
-  <body>
+  <body id="top-of-page">
     <!-- Adds color to the entire page -->
     <div class="underlay"></div>
     <header>
@@ -49,7 +49,7 @@
     </header>
     <main>
       <section>
-        <div>
+        <div class="sticky-header">
           <h2 class="lightText">About</h2>
         </div>
         <div class="about-contents">
@@ -72,7 +72,7 @@
         </div>
       </section>
       <section>
-        <div>
+        <div class="sticky-header">
           <h2 class="lightText">Experience</h2>
         </div>
         <div class="experience-contents">
@@ -104,14 +104,16 @@
               </div>
             </div>
           </div>
-          <a href="/" class="anchor-text"><p>View Full Resume ICON</p></a>
+          <a href="/" class="anchor-text project-archive-link"
+            ><p>View Full Resume <span class="right-arrow">&rarr;</span></p></a
+          >
         </div>
       </section>
       <section>
-        <div>
+        <div class="sticky-header">
           <h2 class="lightText">Projects</h2>
         </div>
-        <div class="projects-contents">
+        <div class="project-contents">
           <div class="project-card">
             <div class="project-image-container">
               <img src="/public/etl-project.png" alt="ETL Project" />
@@ -123,11 +125,10 @@
                 </h3>
               </a>
               <p>
-                Paragraph about what I did at Ridgewood. Paragraph about what I
-                did at Ridgewood. Paragraph about what I did at Ridgewood.
-                Paragraph about what I did at Ridgewood. Paragraph about what I
-                did at Ridgewood. Paragraph about what I did at Ridgewood.
-                Paragraph about what I did at Ridgewood.
+                Personal project to explore backend processes and technology
+                commonly used in the banking industry. Extracts data from a REST
+                API, Transforms and cleans it using Python, and Loads it into a
+                PostgreSQL database.
               </p>
               <div class="tag-container">
                 <div class="tag">
@@ -145,6 +146,27 @@
         </div>
       </section>
     </main>
-    <footer><p>Footer Text</p></footer>
+    <footer>
+      <p>
+        Coded in
+        <a
+          href="https://code.visualstudio.com/"
+          target="_blank"
+          class="anchor-text"
+          >Visual Studio Code</a
+        >
+        , Built with HTML and CSS, deployed with
+        <a href="https://www.netlify.com/" target="_blank" class="anchor-text"
+          >Netlify</a
+        >. All text is set in the
+        <a href="https://rsms.me/inter/" target="_blank" class="anchor-text"
+          >Inter</a
+        >
+        typeface.
+      </p>
+      <a href="#top-of-page" class="scroll-to-top"
+        ><i class="fa-solid fa-arrow-up"></i
+      ></a>
+    </footer>
   </body>
 </html>

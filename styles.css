@@ -1,6 +1,13 @@
 :root {
+  /* Define reusable variables */
   --color-accent: #5eead4;
   --color-highlight: #e2e8f0;
+  --background-accent: rgba(45, 212, 191, 0.1);
+}
+
+html {
+  /* Automated scrolling is smooth, not instantaneous */
+  scroll-behavior: smooth;
 }
 * {
   /* Ensure elements dont overflow their containers.  */
@@ -25,7 +32,7 @@ p {
   line-height: 1.5rem;
 }
 
-/* Whenever text is selected, we change the highlight color. The color of text is contrasted accordingly. */
+/* Change highlight color of selected text. */
 p::selection,
 h1::selection,
 h2::selection,
@@ -77,6 +84,10 @@ header a {
   text-decoration: none;
 }
 
+a {
+  text-decoration: none;
+}
+
 /* Font thickness */
 header h1 {
   font-weight: 700;
@@ -115,6 +126,27 @@ section h2,
   font-weight: 500;
 }
 
+.sticky-header {
+  position: sticky;
+  top: 0;
+  padding: 1rem 0rem;
+}
+
+.sticky-header h2 {
+  position: relative;
+  z-index: 2;
+}
+
+/* Before and Afters are defined as Pseudo-elements, a sort of 'fake' html element */
+.sticky-header::before {
+  /* Before/After effects do not render unless content is applied */
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #101a31;
+  opacity: 0.8;
+}
+
 .about-contents {
   display: flex;
   flex-direction: column;
@@ -124,6 +156,7 @@ section h2,
 .about-contents p {
   font-size: 1.1rem;
 }
+
 /* Set default color for anchor text */
 .anchor-text {
   color: var(--color-highlight);
@@ -144,11 +177,18 @@ section h2,
   gap: 4rem;
 }
 
-.experience-card {
+.experience-card,
+.project-card {
   /* Taken from body, changes the gap to be equal to the about-contents, 1 rem, this displays Experience content as a singular column on smaller screens*/
   display: grid;
   grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+.experience-card {
   gap: 0.5rem;
+}
+.project-card {
+  gap: 1rem;
 }
 
 .card-column {
@@ -189,7 +229,7 @@ section h2,
 .tag {
   border-radius: 1rem;
   padding: 0.25rem 0.5rem;
-  background: rgba(45, 212, 191, 0.1);
+  background: var(rgba(45, 212, 191, 0.1));
 }
 
 .tag p {
@@ -203,6 +243,9 @@ section h2,
   display: grid;
   place-items: center;
   aspect-ratio: 16/9;
+  /* Forces this item to come second in a group of elements, top to bottom */
+  order: 2;
+  border-radius: 0.45rem;
 }
 
 .project-image-container img {
@@ -210,4 +253,71 @@ section h2,
   object-fit: cover;
   width: 100%;
   height: 100%;
+}
+
+.project-archive-link {
+  position: relative;
+  color: var(--color-highlight);
+  text-decoration: none;
+  /* transition-duration: 200ms; */
+  /* Takes up only as much space as it needs to, truncates unused space to the right side */
+  margin-right: auto;
+}
+
+/* When padding is applpied, slow down padding to emulate animation for right-arrow */
+.project-archive-link span {
+  transition-duration: 200ms;
+}
+
+/* When hovering over link, add padding  */
+.project-archive-link:hover span {
+  padding-left: 0.5rem;
+}
+
+.project-archive-link::after {
+  content: "";
+  /* Tethers itself to the relative position of project-archive-link */
+  position: absolute;
+  /* Start from the left hand side, take up entireity of the width */
+  left: 0;
+  width: 100%;
+  height: 1.5px;
+  bottom: 0;
+  /* Default background is transparent so we cant see it until hover state activateed */
+  background: transparent;
+}
+
+.project-archive-link:hover::after {
+  background: var(--color-accent);
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  /* Content is on different ends of page horizontally */
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+footer p {
+  font-size: 0.9rem;
+}
+
+/* Style Top of page button */
+.scroll-to-top {
+  text-decoration: none;
+  color: var(--color-accent);
+  background: var(--background-accent);
+  padding: 0 0.75rem;
+  aspect-ratio: 1/1;
+  display: grid;
+  place-items: center;
+  border-radius: 100%;
+  overflow: hidden;
+  transition-duration: 200ms;
+}
+
+.scroll-to-top:hover {
+  opacity: 0.6;
 }
