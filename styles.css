@@ -63,6 +63,10 @@ h2 {
   gap: 0.45rem;
 }
 
+.title-section h4 {
+  font-size: 1.25rem;
+}
+
 /* Defines the 'order' of background color layers. */
 header,
 main,
@@ -95,6 +99,7 @@ a {
 
 /* Font thickness */
 header h1 {
+  font-size: 3rem;
   font-weight: 700;
 }
 
@@ -112,11 +117,17 @@ header h4 {
 
 /* When in mobile, navigation does not appear */
 nav {
+  /* font-style: bold; */
+  font-weight: 500;
   display: none;
 }
 
 nav a {
   font-size: 0.9rem;
+}
+
+.social-link-container i {
+  font-size: 1.5rem;
 }
 
 .social-link-container {
@@ -368,4 +379,50 @@ footer p {
 }
 
 @media (min-width: 1024px) {
+  body {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    padding: 6rem;
+    padding-top: 0rem;
+  }
+
+  header {
+    position: sticky;
+    top: 0;
+    margin-left: auto;
+    height: fit-content;
+  }
+
+  nav {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  header,
+  main {
+    padding-top: 6rem;
+    max-width: 600px;
+    width: 100%;
+  }
+
+  header {
+    margin-left: auto;
+  }
+
+  main {
+    margin-right: auto;
+  }
+
+  .sticky-header {
+    display: none;
+  }
+
+  footer {
+    grid-column: span 2 / span 2;
+    flex-direction: row;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+  }
 }
